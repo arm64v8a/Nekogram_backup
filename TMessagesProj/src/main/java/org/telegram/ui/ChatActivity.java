@@ -7232,6 +7232,13 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 }
                 undoView.showWithAction(0, UndoView.ACTION_TEXT_COPIED, null);
             }
+
+            @Override
+            public void onTextTranslated() {
+                if (actionBar != null && actionBar.isActionModeShowed()) {
+                    clearSelectionMode();
+                }
+            }
         });
 
         contentView.addView(textSelectionHelper.getOverlayView(context));
